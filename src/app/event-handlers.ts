@@ -4,7 +4,6 @@ import type { MapView } from '@/components';
 import type { ClusteredEvent } from '@/types';
 import type { DashboardSnapshot } from '@/services/storage';
 import {
-  PlaybackControl,
   StatusPanel,
   MobileWarningModal,
   PizzIntIndicator,
@@ -634,21 +633,7 @@ export class EventHandlerManager implements AppModule {
   }
 
   setupPlaybackControl(): void {
-    this.ctx.playbackControl = new PlaybackControl();
-    this.ctx.playbackControl.onSnapshot((snapshot) => {
-      if (snapshot) {
-        this.ctx.isPlaybackMode = true;
-        this.restoreSnapshot(snapshot);
-      } else {
-        this.ctx.isPlaybackMode = false;
-        this.callbacks.loadAllData();
-      }
-    });
-
-    const headerRight = this.ctx.container.querySelector('.header-right');
-    if (headerRight) {
-      headerRight.insertBefore(this.ctx.playbackControl.getElement(), headerRight.firstChild);
-    }
+    // Playback control has been removed
   }
 
   setupSnapshotSaving(): void {

@@ -247,13 +247,6 @@ if (urlParams.get('settings') === '1') {
       m.initSettingsWindow();
     }
   );
-} else if (urlParams.get('live-channels') === '1') {
-  void Promise.all([import('./services/i18n'), import('./live-channels-window')]).then(
-    async ([i18n, m]) => {
-      await i18n.initI18n();
-      m.initLiveChannelsWindow();
-    }
-  );
 } else {
   const app = new App('app');
   app

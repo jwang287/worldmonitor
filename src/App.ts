@@ -257,7 +257,6 @@ export class App {
       searchModal: null,
       findingsBadge: null,
       breakingBanner: null,
-      playbackControl: null,
       exportPanel: null,
       unifiedSettings: null,
       layoutTabs: null,
