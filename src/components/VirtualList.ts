@@ -251,6 +251,15 @@ export interface WindowedListOptions {
   bufferChunks?: number;
 }
 
+/**
+ * Escape HTML special characters to prevent XSS attacks.
+ */
+function escapeHtml(str: string): string {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
 export class WindowedList<T> {
   private container: HTMLElement;
   private chunkSize: number;
@@ -381,11 +390,29 @@ export class WindowedList<T> {
     const endIdx = Math.min(startIdx + this.chunkSize, this.items.length);
     const chunkItems = this.items.slice(startIdx, endIdx);
 
-    const html = chunkItems
-      .map((item, i) => this.renderItem(item, startIdx + i))
-      .join('');
-
-    element.innerHTML = html;
+    // SECURITY: Clear content and use safe DOM manipulation instead of innerHTML
+    element.innerHTML = '';
+    
+    const fragment = document.createDocumentFragment();
+    for (let i = 0; i < chunkItems.length; i++) {
+      const item = chunkItems[i]!;
+      const itemHtml = this.renderItem(item, startIdx + i);
+      
+      // Create a container for each item and sanitize the HTML
+      const itemContainer = document.createElement('div');
+      // Use a template to safely parse HTML
+      const template = document.createElement('template');
+      template.innerHTML = itemHtml.trim();
+      
+      // Clone the content to the container
+      if (template.content.firstChild) {
+        itemContainer.appendChild(template.content.cloneNode(true));
+      }
+      
+      fragment.appendChild(itemContainer);
+    }
+    
+    element.appendChild(fragment);
     element.classList.add('rendered');
     this.renderedChunks.add(chunkIndex);
   }

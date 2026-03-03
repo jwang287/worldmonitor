@@ -2,6 +2,7 @@ import { PANEL_CATEGORY_MAP } from '@/config/panels';
 import { SITE_VARIANT } from '@/config/variant';
 import type { PanelConfig } from '@/types';
 import { t } from '@/services/i18n';
+import { escapeHtml } from '@/utils/sanitize';
 
 export interface WidgetPickerCallbacks {
   getPanelSettings: () => Record<string, PanelConfig>;
@@ -126,7 +127,7 @@ export class WidgetPicker {
         item.className = `widget-picker-item${config.enabled ? ' active' : ''}`;
         item.dataset.panel = key;
         const name = this.callbacks.getLocalizedPanelName(key, config.name || key);
-        item.innerHTML = `<span class="widget-picker-check">${config.enabled ? '✓' : ''}</span><span class="widget-picker-name">${name}</span>`;
+        item.innerHTML = `<span class="widget-picker-check">${config.enabled ? '✓' : ''}</span><span class="widget-picker-name">${escapeHtml(name)}</span>`;
         item.addEventListener('click', (e) => {
           e.stopPropagation();
           this.callbacks.togglePanel(key);
