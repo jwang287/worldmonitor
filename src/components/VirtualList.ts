@@ -251,14 +251,7 @@ export interface WindowedListOptions {
   bufferChunks?: number;
 }
 
-/**
- * Escape HTML special characters to prevent XSS attacks.
- */
-function escapeHtml(str: string): string {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
-}
+
 
 export class WindowedList<T> {
   private container: HTMLElement;
