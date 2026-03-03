@@ -8714,15 +8714,6 @@ a.prediction-link:hover {
     display: none !important;
   }
 
-  /* Show only X logo on mobile, hide @eliehabib text */
-  .credit-link .credit-text {
-    display: none;
-  }
-
-  .credit-link .x-logo {
-    display: inline-block;
-  }
-
   /* Reduce header clutter on mobile */
   .header-center {
     gap: 4px;
