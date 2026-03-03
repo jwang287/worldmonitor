@@ -11,7 +11,6 @@ import {
   PredictionPanel,
 } from '@/components';
 import {
-  buildMapUrl,
   debounce,
   saveToStorage,
   ExportPanel,
@@ -38,10 +37,7 @@ import {
   trackMapViewChange,
   trackMapLayerToggle,
   trackPanelToggled,
-  trackDownloadClicked,
 } from '@/services/analytics';
-import { detectPlatform, allButtons, buttonsForPlatform } from '@/components/DownloadBanner';
-import type { Platform } from '@/components/DownloadBanner';
 import { invokeTauri } from '@/services/tauri-bridge';
 import { dataFreshness } from '@/services/data-freshness';
 import { mlWorker } from '@/services/ml-worker';
@@ -183,20 +179,7 @@ export class EventHandlerManager implements AppModule {
       this.ctx.searchModal?.open();
     });
 
-    document.getElementById('copyLinkBtn')?.addEventListener('click', async () => {
-      const shareUrl = this.getShareUrl();
-      if (!shareUrl) return;
-      const button = document.getElementById('copyLinkBtn');
-      try {
-        await this.copyToClipboard(shareUrl);
-        this.setCopyLinkFeedback(button, 'Copied!');
-      } catch (error) {
-        console.warn('Failed to copy share link:', error);
-        this.setCopyLinkFeedback(button, 'Copy failed');
-      }
-    });
 
-    this.initDownloadDropdown();
 
     window.addEventListener('storage', (e) => {
       if (e.key === STORAGE_KEYS.panels && e.newValue) {
@@ -358,129 +341,6 @@ export class EventHandlerManager implements AppModule {
 
   syncUrlState(): void {
     this.debouncedUrlSync();
-  }
-
-  getShareUrl(): string | null {
-    if (!this.ctx.map) return null;
-    const state = this.ctx.map.getState();
-    const center = this.ctx.map.getCenter();
-    const baseUrl = `${window.location.origin}${window.location.pathname}`;
-    const briefPage = this.ctx.countryBriefPage;
-    const isCountryVisible = briefPage?.isVisible() ?? false;
-    return buildMapUrl(baseUrl, {
-      view: state.view,
-      zoom: state.zoom,
-      center,
-      timeRange: state.timeRange,
-      layers: state.layers,
-      country: isCountryVisible ? (briefPage?.getCode() ?? undefined) : undefined,
-      expanded: isCountryVisible && briefPage?.getIsMaximized?.() ? true : undefined,
-    });
-  }
-
-  private async copyToClipboard(text: string): Promise<void> {
-    if (navigator.clipboard?.writeText) {
-      await navigator.clipboard.writeText(text);
-      return;
-    }
-    const textarea = document.createElement('textarea');
-    textarea.value = text;
-    textarea.style.position = 'fixed';
-    textarea.style.opacity = '0';
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
-  }
-
-  private platformLabel(p: Platform): string {
-    switch (p) {
-      case 'macos-arm64': return '\uF8FF Silicon';
-      case 'macos-x64': return '\uF8FF Intel';
-      case 'macos': return '\uF8FF macOS';
-      case 'windows': return 'Windows';
-      case 'linux': return 'Linux';
-      default: return t('header.downloadApp');
-    }
-  }
-
-  private initDownloadDropdown(): void {
-    const btn = document.getElementById('downloadBtn');
-    const dropdown = document.getElementById('downloadDropdown');
-    const label = document.getElementById('downloadBtnLabel');
-    if (!btn || !dropdown) return;
-
-    const platform = detectPlatform();
-    if (label) label.textContent = this.platformLabel(platform);
-
-    const primary = buttonsForPlatform(platform);
-    const all = allButtons();
-    const others = all.filter(b => !primary.some(p => p.href === b.href));
-
-    const renderDropdown = () => {
-      const primaryHtml = primary.map(b =>
-        `<a class="dl-dd-btn ${b.cls} primary" href="${b.href}">${b.label}</a>`
-      ).join('');
-      const othersHtml = others.map(b =>
-        `<a class="dl-dd-btn ${b.cls}" href="${b.href}">${b.label}</a>`
-      ).join('');
-
-      dropdown.innerHTML = `
-        <div class="dl-dd-tagline">${t('modals.downloadBanner.description')}</div>
-        <div class="dl-dd-buttons">${primaryHtml}</div>
-        ${others.length ? `<button class="dl-dd-toggle" id="dlDdToggle">${t('modals.downloadBanner.showAllPlatforms')}</button>
-        <div class="dl-dd-others" id="dlDdOthers">${othersHtml}</div>` : ''}
-      `;
-
-      dropdown.querySelectorAll<HTMLAnchorElement>('.dl-dd-btn').forEach(a => {
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          const plat = new URL(a.href, location.origin).searchParams.get('platform') || 'unknown';
-          trackDownloadClicked(plat);
-          window.open(a.href, '_blank');
-          dropdown.classList.remove('open');
-        });
-      });
-
-      const toggle = dropdown.querySelector('#dlDdToggle');
-      const othersEl = dropdown.querySelector('#dlDdOthers') as HTMLElement | null;
-      if (toggle && othersEl) {
-        toggle.addEventListener('click', () => {
-          const showing = othersEl.classList.toggle('show');
-          toggle.textContent = showing
-            ? t('modals.downloadBanner.showLess')
-            : t('modals.downloadBanner.showAllPlatforms');
-        });
-      }
-    };
-
-    renderDropdown();
-
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      dropdown.classList.toggle('open');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!dropdown.contains(e.target as Node) && !btn.contains(e.target as Node)) {
-        dropdown.classList.remove('open');
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') dropdown.classList.remove('open');
-    });
-  }
-
-  private setCopyLinkFeedback(button: HTMLElement | null, message: string): void {
-    if (!button) return;
-    const originalText = button.textContent ?? '';
-    button.textContent = message;
-    button.classList.add('copied');
-    window.setTimeout(() => {
-      button.textContent = originalText;
-      button.classList.remove('copied');
-    }, 1500);
   }
 
   toggleFullscreen(): void {
