@@ -74,9 +74,7 @@ export class EventHandlerManager implements AppModule {
   private clockIntervalId: ReturnType<typeof setInterval> | null = null;
   private readonly IDLE_PAUSE_MS = 2 * 60 * 1000;
   private readonly debouncedUrlSync = debounce(() => {
-    const shareUrl = this.getShareUrl();
-    if (!shareUrl) return;
-    try { history.replaceState(null, '', shareUrl); } catch { }
+    // URL sync disabled - getShareUrl removed
   }, 250);
 
   constructor(ctx: AppContext, callbacks: EventHandlerCallbacks) {
