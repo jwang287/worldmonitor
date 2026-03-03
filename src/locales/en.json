@@ -196,7 +196,6 @@
     "panelCatTradePolicy": "Trade Policy"
   },
   "panels": {
-    "liveNews": "Live News",
     "markets": "Markets",
     "map": "Global Situation",
     "techMap": "Global Tech",
@@ -592,19 +591,6 @@
     }
   },
   "components": {
-    "webcams": {
-      "expand": "Expand",
-      "paused": "Webcams paused",
-      "pausedIdle": "Webcams paused \u2014 move mouse to resume",
-      "regions": {
-        "iran": "IRAN ATTACKS",
-        "all": "ALL",
-        "mideast": "MIDEAST",
-        "europe": "EUROPE",
-        "americas": "AMERICAS",
-        "asia": "ASIA"
-      }
-    },
     "positiveNewsFeed": {
       "noStories": "No stories in this category yet"
     },
@@ -757,16 +743,6 @@
       "updatedJustNow": "Updated just now",
       "updatedAt": "Updated {{time}}",
       "storageUnavailable": "Storage info unavailable"
-    },
-    "playback": {
-      "toggleMode": "Toggle Playback Mode",
-      "live": "LIVE",
-      "historicalPlayback": "Historical Playback",
-      "close": "Close",
-      "skipToStart": "Skip to start",
-      "previous": "Previous",
-      "next": "Next",
-      "skipToEnd": "Skip to end"
     },
     "pizzint": {
       "title": "Pentagon Pizza Index",
@@ -1536,40 +1512,6 @@
         "metadata": "Metadata verified",
         "context": "Context established"
       }
-    },
-    "liveNews": {
-      "retry": "Retry",
-      "notLive": "{{name}} is not currently live",
-      "cannotEmbed": "{{name}} can't be played here — it may be restricted in your region (error {{code}})",
-      "botCheck": "YouTube is requesting sign-in to play {{name}}",
-      "signInToYouTube": "Sign in to YouTube",
-      "openOnYouTube": "Open on YouTube",
-      "manage": "Manage channels",
-      "addChannel": "Add channel",
-      "remove": "Remove",
-      "youtubeHandle": "YouTube handle (e.g. @Channel)",
-      "youtubeHandleOrUrl": "YouTube handle or URL",
-      "displayName": "Display name (optional)",
-      "openPanelSettings": "Panel display settings",
-      "channelSettings": "Channel Settings",
-      "save": "Save",
-      "cancel": "Cancel",
-      "confirmDelete": "Delete this channel?",
-      "confirmTitle": "Confirm",
-      "restoreDefaults": "Restore default channels",
-      "availableChannels": "Available channels",
-      "customChannel": "Custom channel",
-      "regionAll": "All",
-      "regionNorthAmerica": "North America",
-      "regionEurope": "Europe",
-      "regionLatinAmerica": "Latin America",
-      "regionAsia": "Asia",
-      "regionMiddleEast": "Middle East",
-      "regionAfrica": "Africa",
-      "regionOceania": "Oceania",
-      "invalidHandle": "Enter a valid YouTube handle (e.g. @ChannelName)",
-      "channelNotFound": "YouTube channel not found",
-      "verifying": "Verifying…"
     },
     "map": {
       "showMap": "Show Map",

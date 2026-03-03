@@ -13,7 +13,7 @@ const FULL_LAYOUTS: LayoutPreset[] = [
     labelKey: 'layouts.intelligenceAnalyst',
     icon: '🔍',
     panelKeys: [
-      'map', 'live-news', 'insights', 'strategic-posture', 'cii',
+      'map', 'insights', 'strategic-posture', 'cii',
       'strategic-risk', 'intel', 'gdelt-intel', 'cascade', 'telegram-intel',
       'monitors', 'satellite-fires', 'displacement', 'oref-sirens',
     ],
@@ -23,7 +23,7 @@ const FULL_LAYOUTS: LayoutPreset[] = [
     labelKey: 'layouts.marketWatch',
     icon: '📈',
     panelKeys: [
-      'map', 'live-news', 'insights', 'markets', 'commodities', 'crypto',
+      'map', 'insights', 'markets', 'commodities', 'crypto',
       'economic', 'macro-signals', 'etf-flows', 'stablecoins',
       'gulf-economies', 'heatmap', 'polymarket', 'finance',
     ],
@@ -33,7 +33,7 @@ const FULL_LAYOUTS: LayoutPreset[] = [
     labelKey: 'layouts.breakingNews',
     icon: '📰',
     panelKeys: [
-      'map', 'live-news', 'live-webcams', 'insights', 'politics', 'us',
+      'map', 'insights', 'politics', 'us',
       'europe', 'middleeast', 'africa', 'latam', 'asia',
     ],
   },
@@ -41,7 +41,7 @@ const FULL_LAYOUTS: LayoutPreset[] = [
     id: 'minimal',
     labelKey: 'layouts.minimal',
     icon: '◯',
-    panelKeys: ['map', 'live-news', 'insights', 'strategic-posture'],
+    panelKeys: ['map', 'insights', 'strategic-posture'],
   },
 ];
 
@@ -51,7 +51,7 @@ const TECH_LAYOUTS: LayoutPreset[] = [
     labelKey: 'layouts.techOverview',
     icon: '💻',
     panelKeys: [
-      'map', 'live-news', 'insights', 'ai', 'tech', 'hardware', 'cloud',
+      'map', 'insights', 'ai', 'tech', 'hardware', 'cloud',
       'dev', 'github', 'producthunt', 'service-status', 'tech-readiness',
     ],
   },
@@ -60,7 +60,7 @@ const TECH_LAYOUTS: LayoutPreset[] = [
     labelKey: 'layouts.startupInvestor',
     icon: '🚀',
     panelKeys: [
-      'map', 'live-news', 'insights', 'startups', 'vcblogs', 'unicorns',
+      'map', 'insights', 'startups', 'vcblogs', 'unicorns',
       'accelerators', 'funding', 'ipo', 'regionalStartups',
     ],
   },
@@ -68,7 +68,7 @@ const TECH_LAYOUTS: LayoutPreset[] = [
     id: 'tech-minimal',
     labelKey: 'layouts.minimal',
     icon: '◯',
-    panelKeys: ['map', 'live-news', 'insights', 'ai', 'tech'],
+    panelKeys: ['map', 'insights', 'ai', 'tech'],
   },
 ];
 
@@ -78,7 +78,7 @@ const FINANCE_LAYOUTS: LayoutPreset[] = [
     labelKey: 'layouts.fullMarkets',
     icon: '📊',
     panelKeys: [
-      'map', 'live-news', 'insights', 'markets', 'markets-news', 'forex',
+      'map', 'insights', 'markets', 'markets-news', 'forex',
       'bonds', 'commodities', 'crypto', 'centralbanks', 'economic',
       'heatmap', 'macro-signals',
     ],
@@ -88,7 +88,7 @@ const FINANCE_LAYOUTS: LayoutPreset[] = [
     labelKey: 'layouts.cryptoFocus',
     icon: '₿',
     panelKeys: [
-      'map', 'live-news', 'insights', 'crypto', 'crypto-news', 'etf-flows',
+      'map', 'insights', 'crypto', 'crypto-news', 'etf-flows',
       'stablecoins', 'fintech', 'markets', 'macro-signals',
     ],
   },
@@ -96,7 +96,7 @@ const FINANCE_LAYOUTS: LayoutPreset[] = [
     id: 'finance-minimal',
     labelKey: 'layouts.minimal',
     icon: '◯',
-    panelKeys: ['map', 'live-news', 'insights', 'markets', 'economic'],
+    panelKeys: ['map', 'insights', 'markets', 'economic'],
   },
 ];
 

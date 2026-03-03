@@ -12,8 +12,6 @@ import {
   MonitorPanel,
   EconomicPanel,
   GdeltIntelPanel,
-  LiveNewsPanel,
-  LiveWebcamsPanel,
   CIIPanel,
   CascadePanel,
   StrategicRiskPanel,
@@ -643,12 +641,6 @@ export class PanelLayoutManager implements AppModule {
         this.ctx.panels['gulf-economies'] = gulfEconomiesPanel;
       }
 
-      const liveNewsPanel = new LiveNewsPanel();
-      this.ctx.panels['live-news'] = liveNewsPanel;
-
-      const liveWebcamsPanel = new LiveWebcamsPanel();
-      this.ctx.panels['live-webcams'] = liveWebcamsPanel;
-
       this.ctx.panels['events'] = new TechEventsPanel('events', () => this.ctx.allNews);
 
       const serviceStatusPanel = new ServiceStatusPanel();
@@ -736,21 +728,6 @@ export class PanelLayoutManager implements AppModule {
           document.getElementById('mapBottomGrid')?.appendChild(el);
         }
       });
-    }
-
-    if (SITE_VARIANT !== 'happy') {
-      const liveNewsIdx = panelOrder.indexOf('live-news');
-      if (liveNewsIdx > 0) {
-        panelOrder.splice(liveNewsIdx, 1);
-        panelOrder.unshift('live-news');
-      }
-
-      const webcamsIdx = panelOrder.indexOf('live-webcams');
-      if (webcamsIdx !== -1 && webcamsIdx !== panelOrder.indexOf('live-news') + 1) {
-        panelOrder.splice(webcamsIdx, 1);
-        const afterNews = panelOrder.indexOf('live-news') + 1;
-        panelOrder.splice(afterNews, 0, 'live-webcams');
-      }
     }
 
     if (this.ctx.isDesktopApp) {

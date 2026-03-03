@@ -146,7 +146,6 @@
     "panelCatTradePolicy": "Handelspolitik"
   },
   "panels": {
-    "liveNews": "Live-Nachrichten",
     "markets": "Märkte",
     "map": "Globale Lage",
     "techMap": "Globale Tech",
@@ -551,17 +550,6 @@
       "match": "übereinstimmen",
       "matches": "Streichhölzer"
     },
-    "webcams": {
-      "regions": {
-        "iran": "IRAN ATTACKS",
-        "all": "ALLE",
-        "mideast": "NAHOST",
-        "europe": "EUROPA",
-        "americas": "AMERIKA",
-        "asia": "ASIEN"
-      },
-      "expand": "Erweitern"
-    },
     "regulation": {
       "timeline": "Zeitleiste",
       "deadlines": "Fristen",
@@ -929,16 +917,6 @@
         "4": "DOUBLE TAKE – UHR MIT ERHÖHTER INTELLIGENZ",
         "5": "AUSBLENDUNG – NIEDRIGSTE BEREITSCHAFT"
       }
-    },
-    "playback": {
-      "toggleMode": "Schalten Sie den Wiedergabemodus um",
-      "historicalPlayback": "Historische Wiedergabe",
-      "live": "LIVE",
-      "close": "Schließen",
-      "skipToStart": "Skip to start",
-      "previous": "Previous",
-      "next": "Next",
-      "skipToEnd": "Skip to end"
     },
     "stablecoins": {
       "pegHealth": "Bindungsstabilität",
@@ -1438,40 +1416,6 @@
         "metadata": "Metadata verified",
         "context": "Context established"
       }
-    },
-    "liveNews": {
-      "retry": "Retry",
-      "notLive": "{{name}} is not currently live",
-      "cannotEmbed": "{{name}} kann hier nicht abgespielt werden — möglicherweise in Ihrer Region eingeschränkt (Fehler {{code}})",
-      "botCheck": "YouTube verlangt eine Anmeldung, um {{name}} abzuspielen",
-      "signInToYouTube": "Bei YouTube anmelden",
-      "openOnYouTube": "Auf YouTube öffnen",
-      "manage": "Kanäle verwalten",
-      "addChannel": "Kanal hinzufügen",
-      "remove": "Entfernen",
-      "youtubeHandle": "YouTube-Handle (z. B. @Channel)",
-      "youtubeHandleOrUrl": "YouTube-Handle oder URL",
-      "displayName": "Anzeigename (optional)",
-      "openPanelSettings": "Panelanzeige-Einstellungen",
-      "channelSettings": "Kanaleinstellungen",
-      "save": "Speichern",
-      "cancel": "Abbrechen",
-      "confirmDelete": "Diesen Kanal löschen?",
-      "confirmTitle": "Bestätigen",
-      "restoreDefaults": "Standardkanäle wiederherstellen",
-      "availableChannels": "Verfügbare Kanäle",
-      "customChannel": "Benutzerdefinierter Kanal",
-      "regionAll": "Alle",
-      "regionNorthAmerica": "Nordamerika",
-      "regionEurope": "Europa",
-      "regionLatinAmerica": "Lateinamerika",
-      "regionAsia": "Asien",
-      "regionMiddleEast": "Naher Osten",
-      "regionAfrica": "Afrika",
-      "regionOceania": "Ozeanien",
-      "invalidHandle": "Geben Sie einen gültigen YouTube-Handle ein (z. B. @KanalName)",
-      "channelNotFound": "YouTube-Kanal nicht gefunden",
-      "verifying": "Wird überprüft…"
     },
     "securityAdvisories": {
       "loading": "Reisehinweise werden geladen...",

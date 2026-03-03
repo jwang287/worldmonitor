@@ -188,7 +188,6 @@
     "panelCatTradePolicy": "贸易政策"
   },
   "panels": {
-    "liveNews": "实时新闻",
     "markets": "市场",
     "map": "全球态势",
     "techMap": "全球科技",
@@ -584,17 +583,6 @@
     }
   },
   "components": {
-    "webcams": {
-      "regions": {
-        "iran": "伊朗袭击",
-        "all": "全部",
-        "mideast": "中东",
-        "europe": "欧洲",
-        "americas": "美洲",
-        "asia": "亚洲"
-      },
-      "expand": "展开"
-    },
     "monitor": {
       "placeholder": "关键词（逗号分隔）",
       "add": "+ 添加监控",
@@ -721,16 +709,6 @@
       "updatedJustNow": "刚刚更新",
       "updatedAt": "更新于{{time}}",
       "storageUnavailable": "存储信息不可用"
-    },
-    "playback": {
-      "toggleMode": "切换回放模式",
-      "live": "实时",
-      "historicalPlayback": "历史回放",
-      "close": "关闭",
-      "skipToStart": "跳到开始",
-      "previous": "上一个",
-      "next": "下一个",
-      "skipToEnd": "跳到结束"
     },
     "pizzint": {
       "title": "五角大楼披萨指数",
@@ -1430,40 +1408,6 @@
         "metadata": "元数据已验证",
         "context": "已建立上下文"
       }
-    },
-    "liveNews": {
-      "retry": "重试",
-      "notLive": "{{name}} 当前未直播",
-      "cannotEmbed": "{{name}} 无法在此播放 — 可能在您所在的地区受到限制（错误 {{code}}）",
-      "openOnYouTube": "在YouTube上打开",
-      "manage": "管理频道",
-      "addChannel": "添加频道",
-      "remove": "删除",
-      "youtubeHandle": "YouTube 句柄（如 @Channel）",
-      "youtubeHandleOrUrl": "YouTube 频道名称或链接",
-      "displayName": "显示名称（可选）",
-      "openPanelSettings": "面板显示设置",
-      "channelSettings": "频道设置",
-      "save": "保存",
-      "cancel": "取消",
-      "confirmDelete": "确定要删除此频道吗？",
-      "confirmTitle": "确认",
-      "restoreDefaults": "恢复默认频道",
-      "availableChannels": "可用频道",
-      "customChannel": "自定义频道",
-      "regionAll": "全部",
-      "regionNorthAmerica": "北美",
-      "regionEurope": "欧洲",
-      "regionLatinAmerica": "拉丁美洲",
-      "regionAsia": "亚洲",
-      "regionMiddleEast": "中东",
-      "regionAfrica": "非洲",
-      "regionOceania": "大洋洲",
-      "botCheck": "YouTube要求登录才能播放{{name}}",
-      "channelNotFound": "未找到YouTube频道",
-      "invalidHandle": "请输入有效的YouTube用户名（例如 @ChannelName）",
-      "signInToYouTube": "登录YouTube",
-      "verifying": "验证中…"
     },
     "securityAdvisories": {
       "loading": "正在加载旅行警告...",
